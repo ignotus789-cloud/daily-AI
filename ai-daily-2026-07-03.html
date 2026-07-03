@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI HOT 日报 — 2026年7月3日</title>
+<style>
+/* ===== CSS Reset & Variables ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f8f9fb;--card-bg:#fff;--text:#1a1a2e;--text-secondary:#5a5a7a;
+  --border:#e8ecf1;--shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --shadow-hover:0 8px 24px rgba(0,0,0,.08),0 2px 6px rgba(0,0,0,.04);
+  --accent:#2563eb;--accent-light:#eff6ff;--hero-bg:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);
+  --hero-text:#f1f5f9;
+  --tag-model:#2563eb;--tag-product:#7c3aed;--tag-industry:#dc2626;
+  --tag-paper:#059669;--tag-tip:#d97706;
+  --tag-model-bg:#eff6ff;--tag-product-bg:#f5f3ff;--tag-industry-bg:#fef2f2;
+  --tag-paper-bg:#ecfdf5;--tag-tip-bg:#fffbeb;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* ===== Hero ===== */
+.hero{background:var(--hero-bg);color:var(--hero-text);padding:48px 24px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(37,99,235,.15),transparent 60%),radial-gradient(circle at 70% 50%,rgba(124,58,237,.1),transparent 60%);pointer-events:none}
+.hero-inner{position:relative;max-width:900px;margin:0 auto}
+.hero-date{font-size:14px;color:rgba(255,255,255,.55);letter-spacing:.5px;margin-bottom:8px}
+.hero h1{font-size:36px;font-weight:800;letter-spacing:-.5px;margin-bottom:6px}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:28px}
+.hero-stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat-num{font-size:32px;font-weight:800}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,.45);margin-top:2px}
+.hero-total{min-width:80px;padding:8px 20px;border:1px solid rgba(255,255,255,.12);border-radius:12px}
+.hero-total .hero-stat-num{font-size:40px;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ===== Anchor Nav ===== */
+.nav-wrap{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav{max-width:1200px;margin:0 auto;display:flex;overflow-x:auto;gap:4px;padding:0 20px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{display:flex;align-items:center;gap:6px;padding:12px 16px;white-space:nowrap;text-decoration:none;font-size:13px;font-weight:500;color:var(--text-secondary);border-bottom:2px solid transparent;transition:all .2s}
+.nav a:hover{color:var(--accent);background:var(--accent-light)}
+.nav a .nav-badge{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 6px;border-radius:11px;font-size:11px;font-weight:700;background:#f1f5f9;color:var(--text-secondary)}
+.nav a:hover .nav-badge{background:var(--accent);color:#fff}
+.nav a.active{color:var(--accent);border-bottom-color:var(--accent)}
+.nav a.active .nav-badge{background:var(--accent);color:#fff}
+
+/* ===== Main ===== */
+.main{max-width:1200px;margin:0 auto;padding:32px 20px 60px}
+.section{margin-bottom:40px;scroll-margin-top:60px}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.section-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.si-model{background:#eff6ff;color:#2563eb}
+.si-product{background:#f5f3ff;color:#7c3aed}
+.si-industry{background:#fef2f2;color:#dc2626}
+.si-paper{background:#ecfdf5;color:#059669}
+.si-tip{background:#fffbeb;color:#d97706}
+.section-title{font-size:20px;font-weight:700}
+.section-count{font-size:13px;color:var(--text-secondary);font-weight:400}
+.section-empty{text-align:center;padding:40px 20px;color:var(--text-secondary);font-size:14px;background:var(--card-bg);border-radius:12px;border:1px dashed var(--border)}
+
+/* ===== Cards ===== */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:20px;transition:all .2s;display:flex;flex-direction:column;gap:10px;position:relative}
+.card:hover{box-shadow:var(--shadow-hover);transform:translateY(-1px)}
+.card-num{position:absolute;top:14px;right:16px;font-size:12px;font-weight:700;color:#d1d5db;font-variant-numeric:tabular-nums}
+.card-header{display:flex;align-items:flex-start;gap:10px}
+.card-chip{display:inline-flex;align-items:center;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600;white-space:nowrap;flex-shrink:0}
+.chip-model{background:var(--tag-model-bg);color:var(--tag-model)}
+.chip-product{background:var(--tag-product-bg);color:var(--tag-product)}
+.chip-industry{background:var(--tag-industry-bg);color:var(--tag-industry)}
+.chip-paper{background:var(--tag-paper-bg);color:var(--tag-paper)}
+.chip-tip{background:var(--tag-tip-bg);color:var(--tag-tip)}
+.card-title{font-size:15px;font-weight:600;line-height:1.5;padding-right:28px;flex:1}
+.card-source{font-size:12px;color:var(--text-secondary);display:flex;align-items:center;gap:4px}
+.card-source::before{content:"";display:inline-block;width:6px;height:6px;border-radius:3px;background:#cbd5e1}
+.card-summary{font-size:13px;color:var(--text-secondary);line-height:1.6}
+.card-link{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;color:var(--accent);text-decoration:none;margin-top:auto;transition:gap .2s}
+.card-link:hover{gap:8px}
+.card-link::after{content:"→";font-size:13px}
+
+/* ===== Footer ===== */
+.footer{text-align:center;padding:32px 20px 48px;color:var(--text-secondary);font-size:13px;border-top:1px solid var(--border);max-width:1200px;margin:0 auto}
+.footer a{color:var(--accent);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+.footer-dot{display:inline-block;margin:0 8px;color:#d1d5db}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  .hero{padding:36px 16px 32px}
+  .hero h1{font-size:26px}
+  .hero-stats{gap:20px}
+  .hero-stat-num{font-size:26px}
+  .hero-total .hero-stat-num{font-size:32px}
+  .cards{grid-template-columns:1fr}
+  .main{padding:24px 12px 40px}
+}
+@media(max-width:480px){
+  .hero-stats{gap:12px;flex-direction:column;align-items:center}
+  .hero-stat-label{display:inline-block;margin-left:4px}
+  .hero-stat{display:flex;align-items:baseline;gap:4px}
+  .hero-total{flex-direction:column;gap:0;padding:12px 28px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Hero ===== -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-date">AI HOT DAILY REPORT</div>
+    <h1>2026年7月3日 星期五</h1>
+    <p class="hero-sub">AI 行业今日精选 · 数据截止当日 08:00 北京时间</p>
+    <div class="hero-stats">
+      <div class="hero-stat hero-total">
+        <div class="hero-stat-num">24</div>
+        <div class="hero-stat-label">精选条目</div>
+      </div>
+      <div class="hero-stat"><div class="hero-stat-num">0</div><div class="hero-stat-label">模型发布/更新</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">7</div><div class="hero-stat-label">产品发布/更新</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">6</div><div class="hero-stat-label">行业动态</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">论文研究</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">7</div><div class="hero-stat-label">技巧与观点</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Anchor Nav ===== -->
+<nav class="nav-wrap">
+  <div class="nav">
+    <a href="#sec-model">🤖 模型发布/更新 <span class="nav-badge">0</span></a>
+    <a href="#sec-product">📦 产品发布/更新 <span class="nav-badge">7</span></a>
+    <a href="#sec-industry">🏭 行业动态 <span class="nav-badge">6</span></a>
+    <a href="#sec-paper">📄 论文研究 <span class="nav-badge">4</span></a>
+    <a href="#sec-tip">💡 技巧与观点 <span class="nav-badge">7</span></a>
+  </div>
+</nav>
+
+<!-- ===== Main Content ===== -->
+<main class="main">
+
+  <!-- 模型发布/更新 -->
+  <section class="section" id="sec-model">
+    <div class="section-header">
+      <div class="section-icon si-model">🤖</div>
+      <h2 class="section-title">模型发布/更新 <span class="section-count">0 条</span></h2>
+    </div>
+    <div class="section-empty">本日暂无模型发布/更新条目，请关注其他版块</div>
+  </section>
+
+  <!-- 产品发布/更新 -->
+  <section class="section" id="sec-product">
+    <div class="section-header">
+      <div class="section-icon si-product">📦</div>
+      <h2 class="section-title">产品发布/更新 <span class="section-count">7 条</span></h2>
+    </div>
+    <div class="cards">
+      <!-- #1 -->
+      <div class="card">
+        <span class="card-num">#1</span>
+        <div class="card-header"><span class="card-chip chip-product">产品</span></div>
+        <div class="card-title">AI 版支付宝开放公测，蚂蚁阿宝无需邀请码即可体验</div>
+        <div class="card-source">IT之家</div>
+        <div class="card-summary">支付宝阿宝 AI 助手正式开放公测，iOS/安卓用户可直接体验，以对话方式安排办事</div>
+        <a class="card-link" href="https://www.ithome.com/0/971/469.htm" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #2 -->
+      <div class="card">
+        <span class="card-num">#2</span>
+        <div class="card-header"><span class="card-chip chip-product">产品</span></div>
+        <div class="card-title">Google Health API 推出 CLI：ghealth 是一款针对 Fitbit 数据的开源工具</div>
+        <div class="card-source">MarkTechPost</div>
+        <div class="card-summary">封装 Google Health API v4 的开源命令行工具，提供 40 种数据类型结构化 JSON 输出</div>
+        <a class="card-link" href="https://www.marktechpost.com/2026/07/02/the-google-health-api-got-a-cli-ghealth-is-an-open-source-tool-for-your-fitbit-air-data" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #3 -->
+      <div class="card">
+        <span class="card-num">#3</span>
+        <div class="card-header"><span class="card-chip chip-product">产品</span></div>
+        <div class="card-title">Senior SWE-Bench：评估AI智能体作为高级工程师的基准测试</div>
+        <div class="card-source">Hacker News</div>
+        <div class="card-summary">开源基准测试评估 AI 智能体完成高级工程师级任务能力，Claude Opus 4.8 通过率 24%</div>
+        <a class="card-link" href="https://senior-swe-bench.snorkel.ai/" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #4 -->
+      <div class="card">
+        <span class="card-num">#4</span>
+        <div class="card-header"><span class="card-chip chip-product">产品</span></div>
+        <div class="card-title">Kimi K2.7 Code 已在 GitHub Copilot 上正式发布</div>
+        <div class="card-source">GitHub Blog</div>
+        <div class="card-summary">Kimi K2.7 Code 成为 Copilot 首个可选开源权重模型，按用量计费，逐步向 Pro 用户推送</div>
+        <a class="card-link" href="https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #5 -->
+      <div class="card">
+        <span class="card-num">#5</span>
+        <div class="card-header"><span class="card-chip chip-product">产品</span></div>
+        <div class="card-title">阿里巴巴发布 Page Agent：开源 JS 库实现网页 DOM 自然语言操控</div>
+        <div class="card-source">MarkTechPost</div>
+        <div class="card-summary">开源 JS 客户端库，嵌入网页后可通过自然语言直接操作 DOM，不依赖截图或多模态模型</div>
+        <a class="card-link" href="https://www.marktechpost.com/2026/07/02/meet-alibabas-page-agent-a-javascript-in-page-gui-agent-that-controls-web-interfaces-with-natural-language-through-the-dom" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #6 -->
+      <div class="card">
+        <span class="card-num">#6</span>
+        <div class="card-header"><span class="card-chip chip-product">产品</span></div>
+        <div class="card-title">昆仑万维天工3.2发布Skywork Tags，AI智能体加入工作群聊</div>
+        <div class="card-source">公众号：昆仑万维</div>
+        <div class="card-summary">将 AI 智能体以团队成员身份接入 Slack、飞书、钉钉等 IM 工具，@Skywork 即可参与讨论</div>
+        <a class="card-link" href="https://mp.weixin.qq.com/s/OqL6ID-mAel8XN-slYgXOA" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #7 -->
+      <div class="card">
+        <span class="card-num">#7</span>
+        <div class="card-header"><span class="card-chip chip-product">产品</span></div>
+        <div class="card-title">Claude Enterprise 新增用量与成本分析及支出管控功能</div>
+        <div class="card-source">Claude Blog</div>
+        <div class="card-summary">新仪表板按群组分析用量成本，Claude Code 管理控制台新增使用量与价值分析选项卡</div>
+        <a class="card-link" href="https://claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 行业动态 -->
+  <section class="section" id="sec-industry">
+    <div class="section-header">
+      <div class="section-icon si-industry">🏭</div>
+      <h2 class="section-title">行业动态 <span class="section-count">6 条</span></h2>
+    </div>
+    <div class="cards">
+      <!-- #8 -->
+      <div class="card">
+        <span class="card-num">#8</span>
+        <div class="card-header"><span class="card-chip chip-industry">行业</span></div>
+        <div class="card-title">Microsoft 成立"Frontier Company"，25 亿美元派驻 6000 名 AI 工程师到企业现场</div>
+        <div class="card-source">The Decoder</div>
+        <div class="card-summary">新业务部门拨款 25 亿美元，6000 名专家驻场"共同设计部署 AI 系统"，定位平台中立方案</div>
+        <a class="card-link" href="https://the-decoder.com/microsoft-launches-2-5-billion-frontier-company-to-embed-6000-ai-engineers-inside-enterprise-clients" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #9 -->
+      <div class="card">
+        <span class="card-num">#9</span>
+        <div class="card-header"><span class="card-chip chip-industry">行业</span></div>
+        <div class="card-title">Anthropic 与五角大楼控权之争：Claude 军事用途护栏分歧</div>
+        <div class="card-source">X: Kim</div>
+        <div class="card-summary">Anthropic 要求禁止全自主武器，五角大楼希望 Claude 覆盖所有合法国家安全场景，分歧持续</div>
+        <a class="card-link" href="https://x.com/kimmonismus/status/2072718147279335507" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #10 -->
+      <div class="card">
+        <span class="card-num">#10</span>
+        <div class="card-header"><span class="card-chip chip-industry">行业</span></div>
+        <div class="card-title">OpenAI 提议美国政府持股 5% 估值 426 亿美元</div>
+        <div class="card-source">X: Testing Catalog</div>
+        <div class="card-summary">OpenAI 向美国政府提供公司 5% 股份，按 8520 亿估值计算价值约 426 亿美元</div>
+        <a class="card-link" href="https://x.com/testingcatalog/status/2072585845542969583" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #11 -->
+      <div class="card">
+        <span class="card-num">#11</span>
+        <div class="card-header"><span class="card-chip chip-industry">行业</span></div>
+        <div class="card-title">花旗、Adobe 等企业限制员工使用 AI 旗舰模型以控制成本</div>
+        <div class="card-source">IT之家</div>
+        <div class="card-summary">多家企业月度 AI 开销增至三倍超 1500 万美元，花旗禁用 Claude Opus 等旗舰模型</div>
+        <a class="card-link" href="https://www.ithome.com/0/971/937.htm" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #12 -->
+      <div class="card">
+        <span class="card-num">#12</span>
+        <div class="card-header"><span class="card-chip chip-industry">行业</span></div>
+        <div class="card-title">快手可灵 AI 获初始投资者 20.28 亿美元注资，投后估值 180 亿美元</div>
+        <div class="card-source">IT之家</div>
+        <div class="card-summary">21 名初始投资者以 138 亿人民币注资，预计 12 个月内启动赴港上市，募资用于算力建设</div>
+        <a class="card-link" href="https://www.ithome.com/0/971/954.htm" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #13 -->
+      <div class="card">
+        <span class="card-num">#13</span>
+        <div class="card-header"><span class="card-chip chip-industry">行业</span></div>
+        <div class="card-title">谷歌 AI 建设导致 2025 年用电量增长 37%</div>
+        <div class="card-source">Ars Technica</div>
+        <div class="card-summary">谷歌年度用电量创最大增幅，数据中心年耗超 4200 万兆瓦时，超过新西兰全国用电量</div>
+        <a class="card-link" href="https://arstechnica.com/ai/2026/07/googles-ai-buildout-drove-37-increase-in-electricity-use-in-2025" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 论文研究 -->
+  <section class="section" id="sec-paper">
+    <div class="section-header">
+      <div class="section-icon si-paper">📄</div>
+      <h2 class="section-title">论文研究 <span class="section-count">4 条</span></h2>
+    </div>
+    <div class="cards">
+      <!-- #14 -->
+      <div class="card">
+        <span class="card-num">#14</span>
+        <div class="card-header"><span class="card-chip chip-paper">论文</span></div>
+        <div class="card-title">关于 Mythos 和网络安全的讨论并非炒作</div>
+        <div class="card-source">X: Ethan Mollick</div>
+        <div class="card-summary">Ethan Mollick 指出关于 Mythos 和网络安全的讨论具有实质意义，非单纯炒作</div>
+        <a class="card-link" href="https://x.com/emollick/status/2072778376494895139" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #15 -->
+      <div class="card">
+        <span class="card-num">#15</span>
+        <div class="card-header"><span class="card-chip chip-paper">论文</span></div>
+        <div class="card-title">多智能体团队阻碍专家发挥</div>
+        <div class="card-source">Apple ML Research</div>
+        <div class="card-summary">多智能体系统中团队无法有效利用专家，性能损失最高 41.1%，倾向于"整合性妥协"</div>
+        <a class="card-link" href="https://machinelearning.apple.com/research/multi-agent-teams-experts" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #16 -->
+      <div class="card">
+        <span class="card-num">#16</span>
+        <div class="card-header"><span class="card-chip chip-paper">论文</span></div>
+        <div class="card-title">RL 微调 VLM 的鲁棒性与思维链一致性研究</div>
+        <div class="card-source">Apple ML Research</div>
+        <div class="card-summary">RL 微调提升 VLM 准确率但侵蚀思维链可靠性；引入忠实性感知奖励可恢复对齐</div>
+        <a class="card-link" href="https://machinelearning.apple.com/research/robustness-chain-thought-consistency" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #17 -->
+      <div class="card">
+        <span class="card-num">#17</span>
+        <div class="card-header"><span class="card-chip chip-paper">论文</span></div>
+        <div class="card-title">VideoFlexTok：可变长度粗到细视频分词</div>
+        <div class="card-source">Apple ML Research</div>
+        <div class="card-summary">可变长度 token 序列视频表示，仅需 672 token 处理 10 秒视频，比 3D 网格少 8 倍</div>
+        <a class="card-link" href="https://machinelearning.apple.com/research/videoflextok" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 技巧与观点 -->
+  <section class="section" id="sec-tip">
+    <div class="section-header">
+      <div class="section-icon si-tip">💡</div>
+      <h2 class="section-title">技巧与观点 <span class="section-count">7 条</span></h2>
+    </div>
+    <div class="cards">
+      <!-- #18 -->
+      <div class="card">
+        <span class="card-num">#18</span>
+        <div class="card-header"><span class="card-chip chip-tip">技巧</span></div>
+        <div class="card-title">browser-use 发布开源 AI 视频剪辑 Skill「video-use」</div>
+        <div class="card-source">X: 邵猛</div>
+        <div class="card-summary">面向 Codex、Claude Code 等 AI 编码智能体的开源视频剪辑 Skill，支持自评估渲染</div>
+        <a class="card-link" href="https://x.com/shao__meng/status/2072644710523691110" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #19 -->
+      <div class="card">
+        <span class="card-num">#19</span>
+        <div class="card-header"><span class="card-chip chip-tip">技巧</span></div>
+        <div class="card-title">Emil Kowalski 发布设计工程师 Skills，让 AI 具备 UI 动画审美</div>
+        <div class="card-source">X: 邵猛</div>
+        <div class="card-summary">三个 Skill 使 AI 编码工具具备设计工程师审美，动画控制在 300ms 内，仅 transform/opacity</div>
+        <a class="card-link" href="https://x.com/shao__meng/status/2072484635955900792" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #20 -->
+      <div class="card">
+        <span class="card-num">#20</span>
+        <div class="card-header"><span class="card-chip chip-tip">技巧</span></div>
+        <div class="card-title">Fable 5 在 RLI 基准中达成 16.1% 自动化率，较八个月前提升六倍</div>
+        <div class="card-source">The Decoder</div>
+        <div class="card-summary">Remote Labor Index 衡量 AI 完成付费自由职业项目能力，Fable 5 从 2.5% 跃升至 16.1%</div>
+        <a class="card-link" href="https://the-decoder.com/ai-agents-can-now-complete-16-percent-of-freelance-jobs-at-pro-quality-up-from-2-5-percent-eight-months-ago" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #21 -->
+      <div class="card">
+        <span class="card-num">#21</span>
+        <div class="card-header"><span class="card-chip chip-tip">技巧</span></div>
+        <div class="card-title">Fable 5 仅 4.44 美元搭建 Rube Goldberg 机器</div>
+        <div class="card-source">X: OpenRouter</div>
+        <div class="card-summary">用 Fable 5 构建鲁布·戈德堡机械仅需 4.44 美元，展示低成本自动化能力</div>
+        <a class="card-link" href="https://x.com/OpenRouter/status/2072738704922439689" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #22 -->
+      <div class="card">
+        <span class="card-num">#22</span>
+        <div class="card-header"><span class="card-chip chip-tip">技巧</span></div>
+        <div class="card-title">千问团队朱达：C 端 Agent 的"多快好省"工程哲学与主动服务探索</div>
+        <div class="card-source">公众号：千问APP</div>
+        <div class="card-summary">执行时间降至初始 1/3，Token 消耗仅为海外 1/10；探索从被动响应转向主动服务的 Harness 架构</div>
+        <a class="card-link" href="https://mp.weixin.qq.com/s/l70iUM0bIpG9EdV9Px7QPQ" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #23 -->
+      <div class="card">
+        <span class="card-num">#23</span>
+        <div class="card-header"><span class="card-chip chip-tip">技巧</span></div>
+        <div class="card-title">Agent 辅助的 SGLang 开发：初步探索</div>
+        <div class="card-source">LMSYS Blog</div>
+        <div class="card-summary">将 LLM 服务、CUDA 调试、内核集成等工作流编码为 SKILL.md，Profile 证据驱动的长期优化</div>
+        <a class="card-link" href="https://www.lmsys.org/blog/2026-07-02-agent-assisted-sglang-development" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+      <!-- #24 -->
+      <div class="card">
+        <span class="card-num">#24</span>
+        <div class="card-header"><span class="card-chip chip-tip">技巧</span></div>
+        <div class="card-title">借用夜晚：将闲置推理 GPU 回收用于研究</div>
+        <div class="card-source">Runway News</div>
+        <div class="card-summary">Runway 开发 deckard 控制器在生产推理集群与研究集群间动态重分配 GPU</div>
+        <a class="card-link" href="https://runwayml.com/news/borrowing-the-night-reclaiming-idle-inference-gpus-for-research" target="_blank" rel="noopener noreferrer">查看原文</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <p><strong>AI HOT 日报</strong> · 2026年7月3日<span class="footer-dot">·</span>共 <strong>24</strong> 条精选<span class="footer-dot">·</span>数据来源 <a href="https://aihot.virxact.com" target="_blank" rel="noopener noreferrer">AI HOT (aihot.virxact.com)</a></p>
+</footer>
+
+<!-- ===== Active Nav Scroll ===== -->
+<script>
+(function(){
+  const navLinks=document.querySelectorAll('.nav a');
+  const sections=[...document.querySelectorAll('.section')];
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      const id=e.target.id;
+      navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id));
+    });
+  },{rootMargin:'-30% 0px -60% 0px'});
+  sections.forEach(s=>observer.observe(s));
+})();
+</script>
+
+</body>
+</html>
